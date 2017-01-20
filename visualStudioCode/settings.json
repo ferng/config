@@ -8,7 +8,6 @@
     "http.proxyStrictSSL": false,
     "window.openFilesInNewWindow": false,
     "files.eol": "\n",
-    "editor.formatOnSave": true,
     "terminal.integrated.scrollback": 9999,
     "eslint.autoFixOnSave": true
 }
