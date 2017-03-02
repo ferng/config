@@ -9,5 +9,7 @@
     "window.openFilesInNewWindow": false,
     "files.eol": "\n",
     "terminal.integrated.scrollback": 9999,
-    "eslint.autoFixOnSave": true
+    "eslint.autoFixOnSave": true,
+    "workbench.activityBar.visible": false,
+    "window.menuBarVisibility": "default"
 }
