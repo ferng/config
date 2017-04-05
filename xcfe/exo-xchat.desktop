@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Exec=xchat
+Icon=xchat
+StartupNotify=false
+Terminal=false
+Categories=Network;X-XFCE;X-Xfce-Toplevel;
+OnlyShowIn=XFCE;
+Name=XChat
+Name[en_GB]=XChat
+Comment[en_GB]=XChat client
