@@ -1,6 +1,6 @@
 {
-    "editor.fontFamily": "Source Code Pro",
-    "editor.fontSize": 12,
+    "editor.fontFamily": "SConsolas",
+    "editor.fontSize": 14,
     "editor.quickSuggestions": true,
     "editor.detectIndentation": false,
     "http.proxy": "http://fernandog:14Garlic@10.1.100.154:8080",
