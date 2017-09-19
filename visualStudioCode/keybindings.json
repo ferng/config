@@ -1,5 +1,0 @@
-// Place your key bindings in this file to overwrite the defaults
-[
-    { "key": "ctrl+n",                    "command": "-workbench.action.showAllSymbols" },
-    { "key": "ctrl+alt+n",                "command": "workbench.action.showAllSymbols" }
-]
