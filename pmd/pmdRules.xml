@@ -24,13 +24,20 @@
 	<rule ref="rulesets/java/controversial.xml">
 		<exclude name="OnlyOneReturn"/>
 		<exclude name="DefaultPackage"/>
+		<exclude name="AtLeastOneConstructor"/>
+		<exclude name="DataflowAnomalyAnalysis"/>
+		<exclude name="AvoidFinalLocalVariable"/>
 	</rule>
 	
 	<rule ref="rulesets/java/coupling.xml">
 		<exclude name="LawOfDemeter"/>
 	</rule>
 	
-	<rule ref="rulesets/java/design.xml"/>
+	<rule ref="rulesets/java/design.xml">
+		<exclude name ="MissingStaticMethodInNonInstantiatableClass"/>
+		<exclude name ="AccessorClassGeneration"/>
+	</rule>
+	
 	<rule ref="rulesets/java/empty.xml"/>
 	<rule ref="rulesets/java/finalizers.xml"/>
 	<rule ref="rulesets/java/imports.xml"/>
@@ -40,7 +47,11 @@
 		<exclude name="BeanMembersShouldSerialize"/>
 	</rule>
 		
-	<rule ref="rulesets/java/junit.xml"/>
+	<rule ref="rulesets/java/junit.xml">
+		<exclude name = "JUnitAssertionsShouldIncludeMessage"/>
+		<exclude name = "JUnitTestContainsTooManyAsserts"/>
+	</rule>
+	
 	<rule ref="rulesets/java/logging-jakarta-commons.xml"/>
 	<rule ref="rulesets/java/logging-java.xml"/>
 	<rule ref="rulesets/java/migrating.xml"/>
