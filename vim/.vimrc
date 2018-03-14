@@ -13,27 +13,51 @@ set statusline+=%#warningmsg#
 set statusline+=%*
 
 call plug#begin('~/.vim/plugged')
-  Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
-  Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
-  Plug 'vim-syntastic/syntastic', {'for': ['javascript', 'javascript.jsx']}
-  Plug 'crusoexia/vim-monokai'
-  Plug 'godlygeek/tabular'
   Plug 'scrooloose/nerdtree'
+  Plug 'godlygeek/tabular', {'on': 'Onions'}
+  Plug 'majutsushi/tagbar'
+  Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx', 'javascript.ts']}
+  Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
+  Plug 'crusoexia/vim-monokai'
+  Plug 'vim-syntastic/syntastic', {'for': ['javascript', 'javascript.jsx']}
 call plug#end()
 
 let g:javascript_plugin_jsdoc = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 0
+let g:syntastic_id_checkers = 1
+let g:syntastic_mode_map = {'mode': 'passive'}
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 let g:syntastic_javascript_eslint_exec = '/bin/ls' "hack for syntastic bug
+"let g:syntastic_debug = 3
+
 colorscheme monokai
 
-map <C-n> :NERDTreeToggle<CR>
-map <C-h> :SyntasticCheck<CR>
+nmap <C-n> :NERDTreeToggle<CR>
+nmap <C-h> :SyntasticCheck<CR>
+nmap <F8>  :TagbarToggle<CR>
+map <C-p> :PlugStatus<CR>
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
 
-syntax on
+if executable('ack')
+  set grepprg=ack\ --nogroup\ --nocolor
+endif
+
+function! s:FindFn(str)
+  if !empty(a:str)
+    execute 'silent grep' a:str | copen
+  endif
+  redraw!
+endfunction
+command! -nargs=1 Find call s:FindFn(<f-args>)
+
+"syntax on
