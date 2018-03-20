@@ -1,0 +1,13 @@
+--nogroup
+--nocolor
+
+--ignore-dir=build
+--ignore-dir=node_modules
+--ignore-dir=target
+--ignore-dir=typings
+--ignore-dir=.vscode
+--ignore-dir=.idea
+
+--ignore-file=is:tags
+
+--type-add=js:ext:jsx
