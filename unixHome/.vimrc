@@ -11,6 +11,7 @@ set expandtab
 set pastetoggle=<F2>
 set statusline+=%#warningmsg#
 set statusline+=%*
+set switchbuf+=usetab,newtab
 
 call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
@@ -38,10 +39,24 @@ let g:syntastic_javascript_eslint_exec = '/bin/ls' "hack for syntastic bug
 colorscheme monokai
 
 nmap <C-n> :NERDTreeToggle<CR>
+nmap ,n :NERDTreeFind<CR>
 nmap <C-h> :SyntasticCheck<CR>
 nmap <F8>  :TagbarToggle<CR>
-map <C-p> :PlugStatus<CR>
+nmap <C-p> :PlugStatus<CR>
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nmap ,/ 0i//<ESC>j
+
+inoremap {      {}<Left>
+inoremap {<CR>  {<CR>}<Esc>O
+inoremap {{     {
+inoremap {}     {}
+inoremap [      []<Left>
+inoremap [<CR>  [<CR>]<Esc>O
+inoremap [[     [
+inoremap []     []
+inoremap        (  ()<Left>
+inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
 
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
