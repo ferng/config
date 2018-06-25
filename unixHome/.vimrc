@@ -44,7 +44,8 @@ nmap <C-h> :SyntasticCheck<CR>
 nmap <F8>  :TagbarToggle<CR>
 nmap <C-p> :PlugStatus<CR>
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-nmap ,/ 0i//<ESC>j
+nmap ,. :call Comment(getpos('.')[1], getpos('.')[1])<CR>
+nmap ,/ :call Comment(getpos('.')[1], getpos("'a")[1])<CR>
 
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
@@ -63,6 +64,8 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
+command! -nargs=1 Find call s:FindFn(<f-args>)
+
 if executable('ack')
   set grepprg=ack\ --nogroup\ --nocolor
 endif
@@ -73,6 +76,21 @@ function! s:FindFn(str)
   endif
   redraw!
 endfunction
-command! -nargs=1 Find call s:FindFn(<f-args>)
 
-"syntax on
+function! Comment(start, end)
+  let first = a:start
+  let last = a:end
+  if a:end < a:start
+    let first = a:end
+    let last = a:start
+  endif
+  for lineNum in range(first, last)
+    let currLine = getline(lineNum)
+    if currLine =~ '^\/\/ '
+      let updated = substitute(currLine, '^\/\/ ', '', '')
+    else
+      let updated = '// ' . currLine
+    endif
+    call setline(lineNum, updated)
+  endfor
+endfunction
