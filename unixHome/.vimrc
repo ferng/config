@@ -44,8 +44,8 @@ nmap <C-h> :SyntasticCheck<CR>
 nmap <F8>  :TagbarToggle<CR>
 nmap <C-p> :PlugStatus<CR>
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-nmap ,. :call Comment(getpos('.')[1], getpos('.')[1])<CR>
-nmap ,/ :call Comment(getpos('.')[1], getpos("'a")[1])<CR>
+nmap <silent> ,. :call Comment(getpos('.')[1], getpos('.')[1])<CR>
+nmap <silent> ,/ :call Comment(getpos('.')[1], getpos("'a")[1])<CR>
 
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
@@ -60,11 +60,11 @@ inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")
 inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
 
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
 command! -nargs=1 Find call s:FindFn(<f-args>)
+command! -range Com <line1>,<line2>call CommentParse()
 
 if executable('ack')
   set grepprg=ack\ --nogroup\ --nocolor
@@ -75,6 +75,10 @@ function! s:FindFn(str)
     execute 'silent grep' a:str | copen
   endif
   redraw!
+endfunction
+
+function! CommentParse() range
+  call Comment(a:firstline, a:lastline)
 endfunction
 
 function! Comment(start, end)
