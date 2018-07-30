@@ -65,6 +65,7 @@ autocmd QuickFixCmdPost    l* nested lwindow
 
 command! -nargs=1 Find call s:FindFn(<f-args>)
 command! -range Com <line1>,<line2>call CommentParse()
+command! Fix call FixFn()
 
 if executable('ack')
   set grepprg=ack\ --nogroup\ --nocolor
@@ -97,4 +98,16 @@ function! Comment(start, end)
     endif
     call setline(lineNum, updated)
   endfor
+endfunction
+
+function! FixFn()
+  let file = expand('%:p')
+  let projRoot = getcwd()
+  let ext = expand('%:e')
+  if ext == 'js'
+    :call system(projRoot.'/node_modules/.bin/eslint -c '.projRoot.'/.eslintrc.json --fix '.file)
+  elseif ext == 'jsx'
+    :call system(projRoot.'/node_modules/.bin/eslint -c '.projRoot.'/.eslintjsxrc.json --fix '.file)
+  endif
+  :e
 endfunction
