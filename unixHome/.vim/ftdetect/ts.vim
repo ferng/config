@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.ts set filetype=javascript.ts
+autocmd BufNewFile,BufRead *.ts set filetype=typescript

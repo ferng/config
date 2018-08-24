@@ -22,58 +22,42 @@
         <Filter name="" />
         <Filter name="" />
         <Filter name="" />
-        <Find name="ubuntu" />
-        <Find name="EMEA/H/C/004161/0000" />
-        <Find name="004161" />
-        <Find name="CDP_TRACKING_DEV" />
-        <Find name="CDP_PORTAL_DEV" />
-        <Find name="CDP_FRAMEWORK_DEV" />
-        <Find name="CDP_SIAMED_ADAPTER_DEV" />
-        <Find name="GWFILEHANDLER_DEV" />
-        <Find name="COMMON_REPOSITORY_DEV" />
-        <Find name="_TEST.emea.eu.int =" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
-        <Replace name="" />
+        <Find name='&quot;' />
+        <Find name="cd..." />
+        <Find name="cd " />
+        <Find name="cd .." />
+        <Find name="cd __" />
+        <Find name="cd --" />
+        <Find name="T282720" />
+        <Find name="T283395" />
+        <Find name="T281978" />
+        <Find name="T281893" />
+        <Replace name="&apos;" />
+        <Replace name="cd .." />
+        <Replace name="cd downloadedContacts\" />
+        <Replace name="cd..." />
+        <Replace name="DIM_PRODUCTS" />
+        <Replace name="F_OUTCOME" />
+        <Replace name="APP_START_DATE" />
+        <Replace name="APPLICATION_H" />
+        <Replace name="F_VARIATIONS" />
+        <Replace name="DIM_APPLICATION" />
     </FindHistory>
     <FileBrowser latestSelectedItem="G:\SharedAreas\IT\Applications\Clinical Data Publications\CDP Publication Portal\db\Releases\data_fix_SD-184505\apply">
         <root foldername="G:\SharedAreas\IT\Applications\Clinical Data Publications\CDP Publication Portal\db\Releases\data_fix_SD-184505\apply" />
         <root foldername="G:\SharedAreas\IT\Applications\eSubLog\v1.0.1-RC4\sql" />
     </FileBrowser>
     <History nbMaxFile="10" inSubMenu="no" customLength="-1">
-        <File filename="C:\Users\gonzalezf\Downloads\cdp-publication-preprocessor.log.1" />
-        <File filename="C:\Users\gonzalezf\Downloads\cdp-publication-preprocessor.log.2" />
-        <File filename="C:\Users\gonzalezf\Downloads\cdp-publication-preprocessor.log.3" />
-        <File filename="C:\Users\gonzalezf\Downloads\cdp-publication-preprocessor.log.4" />
-        <File filename="C:\Users\gonzalezf\Downloads\cdp-publication-preprocessor.log.6" />
-        <File filename="C:\Users\gonzalezf\Downloads\cdp-publication-preprocessor.log (1).2" />
-        <File filename="C:\Users\gonzalezf\Downloads\cdp-publication-preprocessor.log (1).1" />
-        <File filename="G:\SharedAreas\IT\Applications\Clinical Data Publications\CDP Publication Portal\Releases\1.0.5.1-RC1\config\Test\portal-ext.properties" />
-        <File filename="C:\Users\gonzalezf\Downloads\time.ps1" />
-        <File filename="C:\Users\gonzalezf\Documents\stylers.xml" />
+        <File filename="G:\SharedAreas\IT\Applications\Clinical Data Publications\CDP Workflow Tracking Tool\Releases\1.0.4-RC1\db\V0_1_29__record_milestone_iterations.sql" />
+        <File filename="G:\SharedAreas\IT\Applications\Clinical Data Publications\CDP Workflow Tracking Tool\Releases\2.0.0-RC1\db\apply\V0_1_30__stop_recording_milestone_iterations.sql" />
+        <File filename="G:\SharedAreas\IT\Applications\Clinical Data Publications\CDP Workflow Tracking Tool\Releases\2.0.0-RC1\db\apply\V0_1_32__remove_redundant_milestones.sql" />
+        <File filename="G:\SharedAreas\IT\Applications\Clinical Data Publications\CDP Workflow Tracking Tool\Releases\1.0.4-RC1\db\V0_1_28__revamp_milestones.sql" />
+        <File filename="G:\SharedAreas\IT\Applications\Clinical Data Publications\CDP Workflow Tracking Tool\Releases\2.0.0-RC1\db\apply\V0_1_31__cleanup_milestones_data_from_procedures.sql" />
+        <File filename="G:\SharedAreas\IT\Applications\eSubLog\1.2.0.0\properties\prod\node1\esub-log-app.properties" />
+        <File filename="C:\base_domain\lib\esub-log-app.properties" />
+        <File filename="G:\SharedAreas\IT\Applications\Oracle BI\Project Specific\SiamedII\v_5.18.0.0.1\spirit2_sql\bi\apply\V5_18_0_0_1__CDP_APP_PROD_LIST.sql" />
+        <File filename="\\fs-test.eudra.org\e-doi\html\viewAll.html" />
+        <File filename="C:\Users\gonzalezf\Downloads\download.ps1" />
     </History>
     <GUIConfigs>
         <GUIConfig name="ToolBar" visible="yes">standard</GUIConfig>
@@ -82,8 +66,8 @@
         <GUIConfig name="ScintillaViewsSplitter">vertical</GUIConfig>
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" replaceBySpace="no" size="4" />
-        <GUIConfig name="AppPosition" x="28" y="21" width="798" height="558" isMaximized="yes" />
-        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20180818">no</GUIConfig>
+        <GUIConfig name="AppPosition" x="30" y="30" width="798" height="558" isMaximized="yes" />
+        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20180904">no</GUIConfig>
         <GUIConfig name="Auto-detection">yes</GUIConfig>
         <GUIConfig name="CheckHistoryFiles">no</GUIConfig>
         <GUIConfig name="TrayIcon">no</GUIConfig>
@@ -115,7 +99,7 @@
         <GUIConfig name="MISC" fileSwitcherWithoutExtColumn="no" backSlashIsEscapeCharacterForSql="yes" newStyleSaveDlg="no" isFolderDroppedOpenFiles="no" docPeekOnTab="no" docPeekOnMap="no" />
         <GUIConfig name="searchEngine" searchEngineChoice="2" searchEngineCustom="" />
         <GUIConfig name="SmartHighLight" matchCase="no" wholeWordOnly="yes" useFindSettings="no" onAnotherView="no">yes</GUIConfig>
-        <GUIConfig name="ScintillaPrimaryView" lineNumberMargin="show" bookMarkMargin="show" indentGuideLine="show" folderMarkStyle="box" lineWrapMethod="aligned" currentLineHilitingShow="show" scrollBeyondLastLine="no" disableAdvancedScrolling="no" wrapSymbolShow="hide" Wrap="yes" borderEdge="yes" edge="no" edgeNbColumn="80" zoom="-1" zoom2="0" whiteSpaceShow="hide" eolShow="hide" borderWidth="2" smoothFont="no" />
+        <GUIConfig name="ScintillaPrimaryView" lineNumberMargin="show" bookMarkMargin="show" indentGuideLine="show" folderMarkStyle="box" lineWrapMethod="aligned" currentLineHilitingShow="show" scrollBeyondLastLine="no" disableAdvancedScrolling="no" wrapSymbolShow="hide" Wrap="no" borderEdge="yes" edge="no" edgeNbColumn="80" zoom="-1" zoom2="0" whiteSpaceShow="hide" eolShow="hide" borderWidth="2" smoothFont="no" />
         <GUIConfig name="DockingManager" leftWidth="355" rightWidth="200" topHeight="200" bottomHeight="200">
             <PluginDlg pluginName="Notepad++::InternalFunction" id="44085" curr="0" prev="-1" isVisible="no" />
             <PluginDlg pluginName="NPPJSONViewer-win32.dll" id="0" curr="0" prev="-1" isVisible="no" />
