@@ -62,14 +62,18 @@ inoremap [      []<Left>
 inoremap [<CR>  [<CR>]<Esc>O
 inoremap [[     [
 inoremap []     []
-inoremap        (  ()<Left>
-inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
-inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
+inoremap (      ()<Left>
+inoremap <expr> )   strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+inoremap <expr> }   strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
+inoremap <expr> ]   strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
+inoremap <expr> '   strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'<Left>"
+inoremap <expr> "   strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"<Left>"
+inoremap <expr> `   strpart(getline('.'), col('.')-1, 1) == "\`" ? "\<Right>" : "\`\`<Left>"
 
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
-autocmd BufEnter * silent! lcd %:p:h
+
 command! -nargs=1 Find call s:FindFn(<f-args>)
 command! -range Com <line1>,<line2>call CommentParse()
 command! Fix call FixFn()
