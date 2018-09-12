@@ -42,17 +42,17 @@ let g:syntastic_typescript_tslint_exec = '/bin/ls' "hack for syntastic bug
 
 colorscheme monokai
 
-nmap <F7>         :NERDTreeToggle<CR>
-nmap ,n           :NERDTreeFind<CR>
-nmap <C-h>        :SyntasticCheck<CR>
-nmap <F8>         :TagbarToggle<CR>
-nmap <C-p>        :PlugStatus<CR>
-nmap <silent> ,.  :call Comment(getpos('.')[1], getpos('.')[1])<CR>
-nmap <silent> ,/  :call Comment(getpos('.')[1], getpos("'a")[1])<CR>
-nmap <C-S-LEFT>   :tabm -1<CR> 
-nmap <C-S-RIGHT>  :tabm +1<CR>
-
-nnoremap K        :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nmap K                :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nmap ,n               :NERDTreeFind<CR>
+nmap <F7>             :NERDTreeToggle<CR>
+nmap <F8>             :TagbarToggle<CR>
+nmap <C-h>            :SyntasticCheck<CR>
+nmap <C-p>            :PlugStatus<CR>
+nmap <C-S-LEFT>       :tabm -1<CR> 
+nmap <C-S-RIGHT>      :tabm +1<CR>
+nmap <silent> ,/      :call Comment(getpos('.')[1], getpos("'a")[1])<CR>
+nmap <silent><TAB>    :call Indent(getpos('.')[1], getpos("'a")[1], 'indent')<CR>
+nmap <silent><S-TAB>  :call Indent(getpos('.')[1], getpos("'a")[1], 'unindent')<CR>
 
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
@@ -96,7 +96,13 @@ endfunction
 function! Comment(start, end)
   let first = a:start
   let last = a:end
-  if a:end < a:start
+  if first == 0
+    let first = last
+  endif
+  if last == 0
+    let last = first
+  endif
+  if last < first
     let first = a:end
     let last = a:start
   endif
@@ -106,6 +112,31 @@ function! Comment(start, end)
       let updated = substitute(currLine, '^\/\/ ', '', '')
     else
       let updated = '// ' . currLine
+    endif
+    call setline(lineNum, updated)
+  endfor
+endfunction
+
+function! Indent(start, end, action)
+  let first = a:start
+  let last = a:end
+  let action = a:action
+  if first == 0
+    let first = last
+  endif
+  if last == 0
+    let last = first
+  endif
+  if last < first
+    let first = a:end
+    let last = a:start
+  endif
+  for lineNum in range(first, last)
+    let currLine = getline(lineNum)
+    if action == 'indent'
+      let updated = '  ' . currLine
+    else
+      let updated = substitute(currLine, '^  ', '', '')
     endif
     call setline(lineNum, updated)
   endfor

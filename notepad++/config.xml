@@ -21,16 +21,17 @@
         <Filter name="" />
         <Filter name="" />
         <Filter name="" />
+        <Find name="4109" />
+        <Find name="pdf" />
+        <Find name="EURS_DEV" />
+        <Find name="/" />
+        <Find name="log4" />
+        <Find name="gwf" />
         <Find name="Common" />
         <Find name="389" />
         <Find name="node" />
         <Find name="npm" />
-        <Find name='&quot;' />
-        <Find name="cd..." />
-        <Find name="cd " />
-        <Find name="cd .." />
-        <Find name="cd __" />
-        <Find name="cd --" />
+        <Replace name="\" />
         <Replace name="&apos;" />
         <Replace name="cd .." />
         <Replace name="cd downloadedContacts\" />
@@ -40,19 +41,22 @@
         <Replace name="APP_START_DATE" />
         <Replace name="APPLICATION_H" />
         <Replace name="F_VARIATIONS" />
-        <Replace name="DIM_APPLICATION" />
     </FindHistory>
+    <FileBrowser latestSelectedItem="G:\SharedAreas\IT\Applications\Clinical Data Publications\CDP Publication Portal\db\Releases\data_fix_SD-184505\apply">
+        <root foldername="G:\SharedAreas\IT\Applications\Clinical Data Publications\CDP Publication Portal\db\Releases\data_fix_SD-184505\apply" />
+        <root foldername="G:\SharedAreas\IT\Applications\eSubLog\v1.0.1-RC4\sql" />
+    </FileBrowser>
     <History nbMaxFile="10" inSubMenu="no" customLength="-1">
-        <File filename="C:\Users\gonzalezf\Documents\siamedViewTmp.sql" />
-        <File filename="C:\Users\gonzalezf\Documents\siamedView.sql" />
-        <File filename="C:\Users\gonzalezf\Downloads\tracking-tool-web-1.0.2-RC3-JENKINS (1).pom" />
-        <File filename="C:\Users\gonzalezf\Downloads\tracking-tool-web-1.0.3-RC1.pom" />
-        <File filename="C:\Users\gonzalezf\Downloads\tracking-tool-web-1.0.4-RC1.pom" />
-        <File filename="C:\Users\gonzalezf\Downloads\tracking-tool-1.0.4-RC1.pom" />
-        <File filename="C:\Users\gonzalezf\Downloads\tracking-tool-1.0.3-RC1.pom" />
-        <File filename="C:\Users\gonzalezf\AppData\Roaming\Notepad++\plugins\Config\PluginManagerGpup.xml" />
-        <File filename="C:\Users\gonzalezf\Downloads\pom.xml" />
-        <File filename="C:\Users\gonzalezf\Documents\prog\eurs\XCOMP\DefectFlag.sql" />
+        <File filename="C:\Users\gonzalezf\Documents\test.txt" />
+        <File filename="C:\Users\gonzalezf\Documents\TextPad License Backup.txt" />
+        <File filename="X:\ORACLE\tnsnames.ora" />
+        <File filename="G:\SharedAreas\IT\Applications\eSubLog\1.2.0.0\properties\prod\node1\esubmission-logs.properties" />
+        <File filename="G:\SharedAreas\IT\Applications\eSubLog\1.2.0.0\properties\prod\node1\esub-log-app.properties" />
+        <File filename="G:\SharedAreas\IT\Applications\eSubLog\1.2.0.0\properties\prod\node2\esub-log-app.properties" />
+        <File filename="C:\base_domain\servers\esublog_1\logs\access.log" />
+        <File filename="C:\base_domain\servers\esublog_1\logs\access.log00049" />
+        <File filename="C:\base_domain\servers\esublog_1\logs\access.log00048" />
+        <File filename="C:\devtools\nodejs\home\npm-cache\_logs\2018-09-12T09_29_21_037Z-debug.log" />
     </History>
     <GUIConfigs>
         <GUIConfig name="ToolBar" visible="yes">standard</GUIConfig>
@@ -61,8 +65,8 @@
         <GUIConfig name="ScintillaViewsSplitter">vertical</GUIConfig>
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" replaceBySpace="no" size="4" />
-        <GUIConfig name="AppPosition" x="39" y="37" width="798" height="558" isMaximized="yes" />
-        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20180904">no</GUIConfig>
+        <GUIConfig name="AppPosition" x="60" y="52" width="798" height="558" isMaximized="yes" />
+        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20180919">no</GUIConfig>
         <GUIConfig name="Auto-detection">yes</GUIConfig>
         <GUIConfig name="CheckHistoryFiles">no</GUIConfig>
         <GUIConfig name="TrayIcon">no</GUIConfig>
@@ -97,17 +101,15 @@
         <GUIConfig name="ScintillaPrimaryView" lineNumberMargin="show" bookMarkMargin="show" indentGuideLine="show" folderMarkStyle="box" lineWrapMethod="aligned" currentLineHilitingShow="show" scrollBeyondLastLine="no" disableAdvancedScrolling="no" wrapSymbolShow="hide" Wrap="yes" borderEdge="yes" edge="no" edgeNbColumn="80" zoom="-1" zoom2="0" whiteSpaceShow="hide" eolShow="hide" borderWidth="2" smoothFont="no" />
         <GUIConfig name="DockingManager" leftWidth="355" rightWidth="200" topHeight="200" bottomHeight="200">
             <FloatingWindow cont="4" x="41" y="201" width="260" height="752" />
-            <FloatingWindow cont="5" x="21" y="131" width="240" height="682" />
-            <PluginDlg pluginName="Notepad++::InternalFunction" id="44085" curr="0" prev="4" isVisible="yes" />
+            <PluginDlg pluginName="Notepad++::InternalFunction" id="44085" curr="0" prev="4" isVisible="no" />
+            <PluginDlg pluginName="Explorer.dll" id="0" curr="0" prev="-1" isVisible="no" />
             <PluginDlg pluginName="Notepad++::InternalFunction" id="44084" curr="1" prev="-1" isVisible="no" />
             <PluginDlg pluginName="NPPJSONViewer-win32.dll" id="0" curr="0" prev="-1" isVisible="no" />
             <PluginDlg pluginName="dummy" id="0" curr="3" prev="-1" isVisible="no" />
-            <ActiveTabs cont="0" activeTab="0" />
+            <ActiveTabs cont="0" activeTab="-1" />
             <ActiveTabs cont="1" activeTab="-1" />
             <ActiveTabs cont="2" activeTab="-1" />
             <ActiveTabs cont="3" activeTab="-1" />
-            <ActiveTabs cont="4" activeTab="-1" />
-            <ActiveTabs cont="5" activeTab="-1" />
         </GUIConfig>
     </GUIConfigs>
     <ProjectPanels>
@@ -115,8 +117,4 @@
         <ProjectPanel id="1" workSpaceFile="" />
         <ProjectPanel id="2" workSpaceFile="" />
     </ProjectPanels>
-    <FileBrowser latestSelectedItem="G:\SharedAreas\IT\Applications\Clinical Data Publications\CDP Publication Portal\db\Releases\data_fix_SD-184505\apply">
-        <root foldername="G:\SharedAreas\IT\Applications\Clinical Data Publications\CDP Publication Portal\db\Releases\data_fix_SD-184505\apply" />
-        <root foldername="G:\SharedAreas\IT\Applications\eSubLog\v1.0.1-RC4\sql" />
-    </FileBrowser>
 </NotepadPlus>
