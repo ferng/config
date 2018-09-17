@@ -43,6 +43,7 @@ let g:syntastic_typescript_tslint_exec = '/bin/ls' "hack for syntastic bug
 colorscheme monokai
 
 nmap K                :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nmap M                :call DelMark()<CR>
 nmap ,n               :NERDTreeFind<CR>
 nmap <F7>             :NERDTreeToggle<CR>
 nmap <F8>             :TagbarToggle<CR>
@@ -154,4 +155,9 @@ function! FixFn()
     :call system(projRoot.'/node_modules/.bin/tslint --project '.projRoot.'/tsconfig.json --fix '.file)
   endif
   :e
+endfunction
+
+function! DelMark()
+  let mark = input('>')
+  delmarks mark
 endfunction
