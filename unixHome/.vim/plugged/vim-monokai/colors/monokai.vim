@@ -99,26 +99,26 @@ let s:changebg    = { "gui": "#5f5f87", "cterm": "60" }
 " ------------
 
 " editor
-call s:h("Normal",        { "fg": s:white,      "bg": s:black })
-call s:h("ColorColumn",   {                     "bg": s:lightblack })
-call s:h("CursorColumn",  {                     "bg": s:lightblack2 })
-call s:h("CursorLine",    {                     "bg": s:lightblack2 })
+call s:h("Normal",        { "fg": s:white,        "bg": s:black })
+call s:h("ColorColumn",   {                       "bg": s:lightblack })
+call s:h("CursorColumn",  {                       "bg": s:lightblack2 })
+call s:h("CursorLine",    {                       "bg": s:lightblack2 })
 call s:h("NonText",       { "fg": s:lightgrey })
-call s:h("StatusLine",    { "fg": s:warmgrey,   "bg": s:black,        "format": "reverse" })
-call s:h("StatusLineNC",  { "fg": s:darkgrey,   "bg": s:warmgrey,     "format": "reverse" })
-call s:h("TabLine",       { "fg": s:white,      "bg": s:darkblack,    "format": "reverse" })
-call s:h("Visual",        {                     "bg": s:lightgrey })
-call s:h("Search",        { "fg": s:black,      "bg": s:yellow })
-call s:h("MatchParen",    { "fg": s:black,      "bg": s:purple })
+call s:h("StatusLine",    { "fg": s:lightblack2,  "bg": s:grey,        "format": "reverse" })
+call s:h("StatusLineNC",  { "fg": s:lightblack2,  "bg": s:grey,         "format": "reverse" })
+call s:h("TabLine",       { "fg": s:white,        "bg": s:darkblack,    "format": "reverse" })
+call s:h("Visual",        {                       "bg": s:lightgrey })
+call s:h("Search",        { "fg": s:black,        "bg": s:yellow })
+call s:h("MatchParen",    { "fg": s:black,        "bg": s:purple })
 call s:h("Question",      { "fg": s:yellow })
 call s:h("ModeMsg",       { "fg": s:yellow })
 call s:h("MoreMsg",       { "fg": s:yellow })
-call s:h("ErrorMsg",      { "fg": s:black,      "bg": s:red,          "format": "standout" })
+call s:h("ErrorMsg",      { "fg": s:black,        "bg": s:red,          "format": "standout" })
 call s:h("WarningMsg",    { "fg": s:red })
-call s:h("VertSplit",     { "fg": s:darkgrey,   "bg": s:darkblack })
-call s:h("LineNr",        { "fg": s:grey,       "bg": s:lightblack })
-call s:h("CursorLineNr",  { "fg": s:orange,     "bg": s:lightblack })
-call s:h("SignColumn",    {                     "bg": s:lightblack })
+call s:h("VertSplit",     { "fg": s:darkgrey,     "bg": s:darkblack })
+call s:h("LineNr",        { "fg": s:grey,         "bg": s:lightblack })
+call s:h("CursorLineNr",  { "fg": s:orange,       "bg": s:lightblack })
+call s:h("SignColumn",    {                       "bg": s:lightblack })
 
 " misc
 call s:h("SpecialKey",    { "fg": s:pink })
@@ -126,20 +126,20 @@ call s:h("Title",         { "fg": s:yellow })
 call s:h("Directory",     { "fg": s:aqua })
 
 " diff
-call s:h("DiffAdd",       { "fg": s:addfg,      "bg": s:addbg })
-call s:h("DiffDelete",    { "fg": s:black,      "bg": s:delbg })
-call s:h("DiffChange",    { "fg": s:changefg,   "bg": s:changebg })
-call s:h("DiffText",      { "fg": s:black,      "bg": s:aqua })
+call s:h("DiffAdd",       { "fg": s:addfg,        "bg": s:addbg })
+call s:h("DiffDelete",    { "fg": s:black,        "bg": s:delbg })
+call s:h("DiffChange",    { "fg": s:changefg,     "bg": s:changebg })
+call s:h("DiffText",      { "fg": s:black,        "bg": s:aqua })
 
 " fold
-call s:h("Folded",        { "fg": s:warmgrey,   "bg": s:darkblack })
-call s:h("FoldColumn",    {                     "bg": s:darkblack })
+call s:h("Folded",        { "fg": s:warmgrey,     "bg": s:darkblack })
+call s:h("FoldColumn",    {                       "bg": s:darkblack })
 "        Incsearch"
 
 " popup menu
-call s:h("Pmenu",         { "fg": s:lightblack, "bg": s:white })
-call s:h("PmenuSel",      { "fg": s:aqua,       "bg": s:black,        "format": "reverse,bold" })
-call s:h("PmenuThumb",    { "fg": s:lightblack, "bg": s:grey })
+call s:h("Pmenu",         { "fg": s:lightblack,   "bg": s:white })
+call s:h("PmenuSel",      { "fg": s:aqua,         "bg": s:black,        "format": "reverse,bold" })
+call s:h("PmenuThumb",    { "fg": s:lightblack,   "bg": s:grey })
 "        PmenuSbar"
 
 " Generic Syntax Highlighting

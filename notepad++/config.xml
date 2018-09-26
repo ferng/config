@@ -47,16 +47,16 @@
         <root foldername="G:\SharedAreas\IT\Applications\eSubLog\v1.0.1-RC4\sql" />
     </FileBrowser>
     <History nbMaxFile="10" inSubMenu="no" customLength="-1">
-        <File filename="C:\Users\gonzalezf\Documents\test.txt" />
-        <File filename="C:\Users\gonzalezf\Documents\TextPad License Backup.txt" />
-        <File filename="X:\ORACLE\tnsnames.ora" />
-        <File filename="G:\SharedAreas\IT\Applications\eSubLog\1.2.0.0\properties\prod\node1\esubmission-logs.properties" />
         <File filename="G:\SharedAreas\IT\Applications\eSubLog\1.2.0.0\properties\prod\node1\esub-log-app.properties" />
         <File filename="G:\SharedAreas\IT\Applications\eSubLog\1.2.0.0\properties\prod\node2\esub-log-app.properties" />
         <File filename="C:\base_domain\servers\esublog_1\logs\access.log" />
         <File filename="C:\base_domain\servers\esublog_1\logs\access.log00049" />
         <File filename="C:\base_domain\servers\esublog_1\logs\access.log00048" />
         <File filename="C:\devtools\nodejs\home\npm-cache\_logs\2018-09-12T09_29_21_037Z-debug.log" />
+        <File filename="G:\SharedAreas\IT\Applications\Clinical Data Publications\CDP Siamed Adapter\Releases\1.0.0-RC1\properties\PROD\node_2\cdp-siamed-adapter.properties" />
+        <File filename="G:\SharedAreas\IT\Applications\Clinical Data Publications\CDP Siamed Adapter\Releases\1.0.0-RC1\properties\PROD\node_1\cdp-siamed-adapter.properties" />
+        <File filename="C:\Users\gonzalezf\Documents\notes\devConfig.txt" />
+        <File filename="C:\Users\gonzalezf\.npmrc" />
     </History>
     <GUIConfigs>
         <GUIConfig name="ToolBar" visible="yes">standard</GUIConfig>
@@ -65,8 +65,8 @@
         <GUIConfig name="ScintillaViewsSplitter">vertical</GUIConfig>
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" replaceBySpace="no" size="4" />
-        <GUIConfig name="AppPosition" x="60" y="52" width="798" height="558" isMaximized="yes" />
-        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20180919">no</GUIConfig>
+        <GUIConfig name="AppPosition" x="68" y="58" width="798" height="558" isMaximized="yes" />
+        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20181009">no</GUIConfig>
         <GUIConfig name="Auto-detection">yes</GUIConfig>
         <GUIConfig name="CheckHistoryFiles">no</GUIConfig>
         <GUIConfig name="TrayIcon">no</GUIConfig>
