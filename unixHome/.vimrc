@@ -10,8 +10,10 @@ set ruler
 set expandtab
 set pastetoggle=<F2>
 set statusline+=%#warningmsg#
-set statusline+=%*
+set statusline+=%*%n-%F%r%l,%c
 set switchbuf+=usetab,newtab
+set diffopt+=iwhite
+set shortmess=F
 
 call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
