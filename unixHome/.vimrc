@@ -80,6 +80,7 @@ autocmd QuickFixCmdPost    l* nested lwindow
 command! -nargs=1 Find call s:FindFn(<f-args>)
 command! -range Com <line1>,<line2>call CommentParse()
 command! Fix call FixFn()
+command! WP call Writing()
 
 if executable('ack')
   set grepprg=ack\ --nogroup\ --nocolor
@@ -162,4 +163,13 @@ endfunction
 function! DelMark()
   let mark = input('>')
   delmarks mark
+endfunction
+
+function! Writing()
+  map k gk
+  map <UP> gk
+  map j gj
+  map <DOWN> gj
+  set spell spelllang=en_gb
+  set spellfile=~/.vim/spell/en.utf-8.add
 endfunction
