@@ -25,3 +25,12 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+# Maven
+export M2_HOME=$HOME/bin/apache-maven-3.5.0
+export M2=$M2_HOME/bin
+export PATH=$M2:$PATH:
+
+# Nodejs
+export NODEJS_HOME=/usr/lib/nodejs/node-v10.0.0-linux-x64
+export PATH=$NODEJS_HOME/bin:/home/fern/.npm-packages/bin:$PATH
