@@ -73,7 +73,7 @@ inoremap <expr> '   strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : 
 inoremap <expr> "   strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"<Left>"
 inoremap <expr> `   strpart(getline('.'), col('.')-1, 1) == "\`" ? "\<Right>" : "\`\`<Left>"
 
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * call s:Open()
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
@@ -81,10 +81,23 @@ command! -nargs=1 Find call s:FindFn(<f-args>)
 command! -range Com <line1>,<line2>call CommentParse()
 command! Fix call FixFn()
 command! WP call Writing()
+command! WS call WsFn()
+command! WL call WriteLint()
+command! WF call WriteFixReloadLint()
 
 if executable('ack')
   set grepprg=ack\ --nogroup\ --nocolor
 endif
+
+function! s:Open()
+  if argc() == 0 && !exists("s:std_in")
+    if filereadable("fern.sess")
+      source fern.sess
+    else
+      NERDTree
+		endif
+  endif
+endfunction
 
 function! s:FindFn(str)
   if !empty(a:str)
@@ -172,4 +185,20 @@ function! Writing()
   map <DOWN> gj
   set spell spelllang=en_gb
   set spellfile=~/.vim/spell/en.utf-8.add
+endfunction
+
+function! WsFn()
+  mks fern.sess
+endfunction
+
+function! WriteLint()
+  write
+  SyntasticCheck
+endfunction
+
+function! WriteFixReloadLint()
+  write
+  call FixFn()
+  edit
+  SyntasticCheck
 endfunction
