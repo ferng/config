@@ -93,6 +93,9 @@ function! s:Open()
   if argc() == 0 && !exists("s:std_in")
     if filereadable("fern.sess")
       source fern.sess
+      tabedit
+      NERDTree
+      tabm 0
     else
       NERDTree
 		endif
@@ -188,7 +191,10 @@ function! Writing()
 endfunction
 
 function! WsFn()
-  mks fern.sess
+  tabn 1
+  NERDTreeClose
+  mks! fern.sess
+  NERDTree
 endfunction
 
 function! WriteLint()
