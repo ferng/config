@@ -23,7 +23,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim', {'for': ['typescript']}
   Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
   Plug 'crusoexia/vim-monokai'
-  Plug 'vim-syntastic/syntastic', {'for': ['javascript', 'javascript.jsx', 'typescript']}
+  Plug 'vim-syntastic/syntastic', {'for': ['javascript', 'javascript.jsx', 'typescript', 'python']}
 call plug#end()
 
 let g:javascript_plugin_jsdoc = 1
@@ -40,7 +40,9 @@ let g:syntastic_javascript_eslint_exec = '/bin/ls' "hack for syntastic bug
 let g:syntastic_typescript_checkers = ['typescript/tslint']
 let g:syntastic_typescript_tslint_exe = 'node_modules/.bin/tslint'
 let g:syntastic_typescript_tslint_exec = '/bin/ls' "hack for syntastic bug
-"let g:syntastic_debug = 63
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_pylint_exe = 'pylint'
+" let g:syntastic_debug = 63
 
 colorscheme monokai
 
@@ -77,13 +79,18 @@ autocmd VimEnter * call s:Open()
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
+let b:comment = '//'
+autocmd Filetype python let b:comment = '#'
+autocmd Filetype vim let b:comment = '"'
+
+
 command! -nargs=1 Find call s:FindFn(<f-args>)
 command! -range Com <line1>,<line2>call CommentParse()
 command! Fix call FixFn()
 command! WP call Writing()
 command! WS call WsFn()
 command! WL call WriteLint()
-command! WF call WriteFixReloadLint()
+command! WF call WriteFixLint()
 
 if executable('ack')
   set grepprg=ack\ --nogroup\ --nocolor
@@ -128,10 +135,10 @@ function! Comment(start, end)
   endif
   for lineNum in range(first, last)
     let currLine = getline(lineNum)
-    if currLine =~ '^\/\/ '
-      let updated = substitute(currLine, '^\/\/ ', '', '')
+    if currLine =~ '^' . b:comment . ' '
+      let updated = substitute(currLine, '^' . b:comment . ' ', '', '')
     else
-      let updated = '// ' . currLine
+      let updated = b:comment . ' ' . currLine
     endif
     call setline(lineNum, updated)
   endfor
@@ -154,11 +161,10 @@ function! Indent(start, end, action)
   for lineNum in range(first, last)
     let currLine = getline(lineNum)
     if action == 'indent'
-      let updated = '  ' . currLine
+      >
     else
-      let updated = substitute(currLine, '^  ', '', '')
+      <
     endif
-    call setline(lineNum, updated)
   endfor
 endfunction
 
@@ -202,9 +208,8 @@ function! WriteLint()
   SyntasticCheck
 endfunction
 
-function! WriteFixReloadLint()
+function! WriteFixLint()
   write
   call FixFn()
-  edit
   SyntasticCheck
 endfunction
