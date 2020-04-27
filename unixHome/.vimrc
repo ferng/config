@@ -68,6 +68,8 @@ inoremap [<CR>  [<CR>]<Esc>O
 inoremap [[     [
 inoremap []     []
 inoremap (      ()<Left>
+inoremap ((     (
+inoremap ()     ()
 inoremap <expr> )   strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 inoremap <expr> }   strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
 inoremap <expr> ]   strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
