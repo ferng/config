@@ -81,7 +81,7 @@ autocmd VimEnter * call s:Open()
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
-let b:comment = '//'
+autocmd Filetype * let b:comment = '//'
 autocmd Filetype python let b:comment = '#'
 autocmd Filetype vim let b:comment = '"'
 
