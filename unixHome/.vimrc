@@ -1,13 +1,13 @@
 set noerrorbells
 set history
-set tabstop=2
 set backspace=eol,start,indent
 set wrap
-set shiftwidth=2
 set linebreak
+set tabstop=2       "for non-c files only
+set shiftwidth=2    "for non-c files only
+set expandtab       "for non-c files only
 set autoindent
 set ruler
-set expandtab
 set pastetoggle=<F2>
 set statusline+=%#warningmsg#
 set statusline+=%*%n-%F%r%l,%c
@@ -81,6 +81,8 @@ autocmd VimEnter * call s:Open()
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
+autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+autocmd FileType c set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 autocmd Filetype * let b:comment = '//'
 autocmd Filetype python let b:comment = '#'
 autocmd Filetype vim let b:comment = '"'
@@ -161,7 +163,7 @@ function! Indent(start, end, action)
     let last = a:start
   endif
   for lineNum in range(first, last)
-    let currLine = getline(lineNum)
+    call cursor(lineNum, 0)
     if action == 'indent'
       >
     else
