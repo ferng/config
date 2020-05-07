@@ -100,6 +100,12 @@ if executable('ack')
   set grepprg=ack\ --nogroup\ --nocolor
 endif
 
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+
 function! s:Open()
   if argc() == 0 && !exists("s:std_in")
     if filereadable("fern.sess")
