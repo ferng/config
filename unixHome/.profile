@@ -27,7 +27,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # Maven
-export M2_HOME=$HOME/bin/apache-maven-3.5.0
+export M2_HOME=/opt/apache-maven-3.6.0
 export M2=$M2_HOME/bin
 export PATH=$M2:$PATH:
 
