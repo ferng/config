@@ -87,7 +87,6 @@ autocmd Filetype * let b:comment = '//'
 autocmd Filetype python let b:comment = '#'
 autocmd Filetype vim let b:comment = '"'
 
-
 command! -nargs=1 Find call s:FindFn(<f-args>)
 command! -range Com <line1>,<line2>call CommentParse()
 command! Fix call FixFn()
@@ -95,6 +94,7 @@ command! WP call Writing()
 command! WS call WsFn()
 command! WL call WriteLint()
 command! WF call WriteFixLint()
+command! FT call Format()
 
 if executable('ack')
   set grepprg=ack\ --nogroup\ --nocolor
@@ -222,4 +222,24 @@ function! WriteFixLint()
   write
   call FixFn()
   SyntasticCheck
+endfunction
+
+function! Format()
+  retab!
+  call Preserve('normal gg=G')
+endfunction
+
+function! Preserve(command)
+  let search = @/
+  let cursor_position = getpos('.')
+  normal! H
+  let window_position = getpos('.')
+  call setpos('.', cursor_position)
+
+  execute a:command
+
+  let @/ = search
+  call setpos('.', window_position)
+  normal! zt
+  call setpos('.', cursor_position)
 endfunction
