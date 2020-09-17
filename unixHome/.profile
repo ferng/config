@@ -32,7 +32,11 @@ export M2=$M2_HOME/bin
 export PATH=$M2:$PATH:
 
 # Nodejs
-export PATH=~/.npm-packages/bin:$PATH
+export NODEJS_HOME=/usr/lib/nodejs/node-v10.16.0-linux-x64
+export PATH=$NODEJS_HOME/bin:/home/fern/.npm-packages/bin:$PATH
 
 # c
 export CFLAGS='-std=gnu89 -Wall -Wextra -Wfloat-equal -Wformat-security -Wformat-overflow -Wformat-truncation -Wdouble-promotion -Wimplicit-fallthrough -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Wunused -Wuninitialized -Wduplicated-branches -Wduplicated-cond -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wjump-misses-init -Wconversion -Wmissing-prototypes -Wmissing-declarations -Wmissing-field-initializers -Wpadded -Wredundant-decls -Wint-in-bool-context -g -ggdb -pg -fprofile-arcs -ftest-coverage -fsanitize=address -fsanitize=undefined -fsanitize-address-use-after-scope -fsanitize-undefined-trap-on-error -fstack-protector-all -fstack-check'
+
+#PGP
+export GPGKEY=966F328AFC43DB08
