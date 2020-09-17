@@ -116,8 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH=/opt/apache-maven-3.6.0/bin:$PATH
-
 set -o vi
 export VISUAL=vim
 export EDITOR="$VISUAL"

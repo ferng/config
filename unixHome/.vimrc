@@ -1,13 +1,13 @@
 set noerrorbells
 set history
-set tabstop=2
 set backspace=eol,start,indent
 set wrap
-set shiftwidth=2
 set linebreak
+set tabstop=2       "for non-c files only
+set shiftwidth=2    "for non-c files only
+set expandtab       "for non-c files only
 set autoindent
 set ruler
-set expandtab
 set pastetoggle=<F2>
 set statusline+=%#warningmsg#
 set statusline+=%*%n-%F%r%l,%c
@@ -68,6 +68,8 @@ inoremap [<CR>  [<CR>]<Esc>O
 inoremap [[     [
 inoremap []     []
 inoremap (      ()<Left>
+inoremap ((     (
+inoremap ()     ()
 inoremap <expr> )   strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 inoremap <expr> }   strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
 inoremap <expr> ]   strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
@@ -79,10 +81,11 @@ autocmd VimEnter * call s:Open()
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
-let b:comment = '//'
+autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+autocmd FileType c set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+autocmd Filetype * let b:comment = '//'
 autocmd Filetype python let b:comment = '#'
 autocmd Filetype vim let b:comment = '"'
-
 
 command! -nargs=1 Find call s:FindFn(<f-args>)
 command! -range Com <line1>,<line2>call CommentParse()
@@ -91,9 +94,16 @@ command! WP call Writing()
 command! WS call WsFn()
 command! WL call WriteLint()
 command! WF call WriteFixLint()
+command! FT call Format()
 
 if executable('ack')
   set grepprg=ack\ --nogroup\ --nocolor
+endif
+
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
 function! s:Open()
@@ -159,7 +169,7 @@ function! Indent(start, end, action)
     let last = a:start
   endif
   for lineNum in range(first, last)
-    let currLine = getline(lineNum)
+    call cursor(lineNum, 0)
     if action == 'indent'
       >
     else
@@ -212,4 +222,24 @@ function! WriteFixLint()
   write
   call FixFn()
   SyntasticCheck
+endfunction
+
+function! Format()
+  retab!
+  call Preserve('normal gg=G')
+endfunction
+
+function! Preserve(command)
+  let search = @/
+  let cursor_position = getpos('.')
+  normal! H
+  let window_position = getpos('.')
+  call setpos('.', cursor_position)
+
+  execute a:command
+
+  let @/ = search
+  call setpos('.', window_position)
+  normal! zt
+  call setpos('.', cursor_position)
 endfunction
