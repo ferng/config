@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Intellij
+# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+# From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
+GenericName=ide
+Comment=ide
+Exec=~/.local/share/applications/idea-IC-202.7660.26/bin/idea.sh
+StartupNotify=true
+Terminal=false
+Icon=~/.local/share/applications/idea-IC-202.7660.26/bin/idea.svg
+Type=Application
+Categories=development
